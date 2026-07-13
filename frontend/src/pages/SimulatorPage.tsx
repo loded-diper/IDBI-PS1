@@ -289,7 +289,7 @@ export default function SimulatorPage() {
                            </defs>
                            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }} dy={10} />
                            <YAxis tickFormatter={formatCurrency} axisLine={false} tickLine={false} tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }} domain={['auto', 'auto']} dx={-10} />
-                           <Tooltip formatter={(val: number) => formatCurrency(val)} cursor={false} contentStyle={{ background: '#FFFFFF', border: '1px solid var(--border-strong)', borderRadius: '4px', boxShadow: 'var(--shadow-floating)' }}/>
+                           <Tooltip formatter={(val) => formatCurrency(Number(val ?? 0))} cursor={false} contentStyle={{ background: '#FFFFFF', border: '1px solid var(--border-strong)', borderRadius: '4px', boxShadow: 'var(--shadow-floating)' }}/>
                            <Area type="monotone" dataKey="Current" stroke="var(--text-muted)" fill="none" strokeWidth={1.5} strokeDasharray="4 4" />
                            <Area type="monotone" dataKey="Simulated" stroke={diff >= 0 ? '#1B436D' : '#6F353C'} fillOpacity={1} fill="url(#simGrad)" strokeWidth={2.5} />
                         </AreaChart>
@@ -338,7 +338,7 @@ export default function SimulatorPage() {
                         <LineChart data={retirementData} margin={{ top: 10, right: 0, bottom: 20, left: 0 }}>
                            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }} dy={10} />
                            <YAxis tickFormatter={formatCurrency} axisLine={false} tickLine={false} tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }} domain={['auto', 'auto']} dx={-10} />
-                           <Tooltip formatter={(val: number) => formatCurrency(val)} cursor={false} contentStyle={{ background: '#FFFFFF', border: '1px solid var(--border-strong)', borderRadius: '4px', boxShadow: 'var(--shadow-floating)' }}/>
+                           <Tooltip formatter={(val) => formatCurrency(Number(val ?? 0))} cursor={false} contentStyle={{ background: '#FFFFFF', border: '1px solid var(--border-strong)', borderRadius: '4px', boxShadow: 'var(--shadow-floating)' }}/>
                            <Line type="monotone" dataKey="Nominal" stroke="#1B436D" strokeWidth={2.5} dot={false} />
                            <Line type="monotone" dataKey="Real" stroke="#0F5E71" strokeWidth={2} dot={false} strokeDasharray="6 3" />
                         </LineChart>

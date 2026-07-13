@@ -105,11 +105,11 @@ export default function PortfolioPage() {
                      <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
                           <Pie data={pieData} cx="50%" cy="50%" innerRadius={55} outerRadius={75} paddingAngle={2} dataKey="value" stroke="none">
-                            {pieData.map((entry, index) => (
+                            {pieData.map((_, index) => (
                               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                           </Pie>
-                          <Tooltip formatter={(val: number) => formatCurrency(val)} cursor={false} contentStyle={{ background: 'var(--bg-surface)', border: '1px solid var(--border-strong)', borderRadius: '4px', boxShadow: 'var(--shadow-floating)' }} />
+                          <Tooltip formatter={(val) => formatCurrency(Number(val ?? 0))} cursor={false} contentStyle={{ background: 'var(--bg-surface)', border: '1px solid var(--border-strong)', borderRadius: '4px', boxShadow: 'var(--shadow-floating)' }} />
                         </PieChart>
                      </ResponsiveContainer>
                    </div>

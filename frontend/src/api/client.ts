@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { Persona, AuthResponse, DashboardSummary, Transaction, SpendingTrend, SpendingAnalytics, PortfolioAnalytics, GoalProjected, Recommendation, CashFlowAnalytics } from '../types';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
